@@ -1,3 +1,5 @@
+import { Requests } from "./Requests.js"
+
 
 export const SinkRepair = () => {
     return `
@@ -7,6 +9,7 @@ export const SinkRepair = () => {
 
     <section class="serviceRequests">
         <h2>Service Requests</h2>
+        ${Requests()}
     </section>
     `
 }
