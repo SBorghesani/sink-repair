@@ -1,4 +1,4 @@
-import { getRequests, deleteRequest } from "./dataAccess.js"
+import { getRequests, deleteRequest, saveCompletion, getPlumbers } from "./dataAccess.js"
 
 const mainContainer = document.querySelector("#container")
 
@@ -10,23 +10,43 @@ mainContainer.addEventListener("click", click => {
 })
 
 
-// export const Requests = () => {
-//     const requests = getRequests()
-    
-//     let html = `
-//         <ul>
-//         ${
-//             requests.map(request => {
-//                 return `<li>
-//                    ${request.description}
-//                 </li>`
-//             })
-// }
-//         </ul>
-//     `
+mainContainer.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.id === "plumbers") {
+            const [requestId, plumberId] = event.target.value.split("--")
 
-//     return html
-// }
+            /*
+                This object should have 3 properties
+                   1. requestId
+                   2. plumberId
+                   3. date_created
+            */
+            const completion = {
+                requestId: parseInt(requestId),
+                plumberId: parseInt(plumberId),
+                date_created: Date.now() }
+
+            /*
+                Invoke the function that performs the POST request
+                to the `completions` resource for your API. Send the
+                completion object as a parameter.
+             */
+            saveCompletion(completion)
+        }
+    }
+    )
+    
+//     const plumbers = [{
+//         id: 1,
+//         name: "maude"
+//     }, {
+//         id: 2,
+//         name: "Merle"
+//     }
+// ]
+    
+const plumbers = getPlumbers()
 
 const listedRequests = (request) => {
     return `<li>
@@ -36,8 +56,19 @@ const listedRequests = (request) => {
          Delete
         </button>
     
+    <select class="plumbers" id="plumbers">
+    <option value="">Choose</option>
+    ${
+        plumbers.map(
+            plumber => {
+                return `<option value="${request.id}--${plumber.id}">${plumber.name}</option>`
+            }
+        ).join("")
+    }
+</select>
     </li>`
 }
+
 
 export const Requests = () => {
     const requests = getRequests()
@@ -45,12 +76,16 @@ export const Requests = () => {
     let html = `
     <ul>
     
-
+    
     ${requests.map(listedRequests).join("")}
+    
+    
+</ul>
+`
+
 
         
-        </ul>
-    `
+    
 
     return html
 }

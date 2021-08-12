@@ -1,6 +1,34 @@
 {
-  "plumbers": [],
-  "completions": [],
+  "plumbers": [
+    {
+      "id": 1,
+      "name": "Maude"
+    },
+    {
+      "id": 2,
+      "name": "Merle"
+    }
+  ],
+  "completion": [
+    {
+      "requestId": 1,
+      "plumberId": 1,
+      "date_created": 1628782844440,
+      "id": 1
+    },
+    {
+      "requestId": 2,
+      "plumberId": 2,
+      "date_created": 1628783213283,
+      "id": 2
+    },
+    {
+      "requestId": 4,
+      "plumberId": 1,
+      "date_created": 1628783215886,
+      "id": 3
+    }
+  ],
   "requests": [
     {
       "id": 1,
@@ -36,6 +64,13 @@
       "budget": "555",
       "neededBy": "2021-08-05",
       "id": 7
+    },
+    {
+      "description": "When I take a shower the bathroom mirror fogs up",
+      "address": "YMCA on Gallatin",
+      "budget": "1",
+      "neededBy": "2021-08-12",
+      "id": 8
     }
   ]
 }
