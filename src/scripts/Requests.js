@@ -37,18 +37,10 @@ mainContainer.addEventListener(
     }
     )
     
-//     const plumbers = [{
-//         id: 1,
-//         name: "maude"
-//     }, {
-//         id: 2,
-//         name: "Merle"
-//     }
-// ]
-    
-const plumbers = getPlumbers()
 
-const listedRequests = (request) => {
+    
+    const listedRequests = (request) => {
+    const plumbers = getPlumbers()
     return `<li>
         ${request.description}
         <button class="request__delete"

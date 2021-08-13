@@ -11,12 +11,6 @@
   ],
   "completion": [
     {
-      "requestId": 1,
-      "plumberId": 1,
-      "date_created": 1628782844440,
-      "id": 1
-    },
-    {
       "requestId": 2,
       "plumberId": 2,
       "date_created": 1628783213283,
@@ -30,13 +24,6 @@
     }
   ],
   "requests": [
-    {
-      "id": 1,
-      "description": "Aut sint voluptatem fugit eius quas molestiae modi.",
-      "address": "34445 Bianka Ports",
-      "budget": 400,
-      "neededBy": "2021-08-27"
-    },
     {
       "description": "Bathroom needs a toiletectamy",
       "address": "420 Nunya Blvd",

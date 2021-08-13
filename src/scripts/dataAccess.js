@@ -31,20 +31,20 @@ const applicationState = {
     requests: []
 }
 
-// export const getPlumber = () => {
-//     return applicationState.plumbers.map(plumber => ({...plumber}))
-// }
-export const getPlumbers = () => {
+export const fetchPlumbers = () => {
     return fetch(`${API}/plumbers`)
-        .then(response => response.json()) 
-        .then( (plumberData) => {
-            console.log(plumberData)
-            applicationState.plumbers = plumberData
-            
-        }
+    .then(response => response.json()) 
+    .then( (plumberData) => {
+        console.log(plumberData)
+        applicationState.plumbers = plumberData
+        
+    }
     )
 }
 
+export const getPlumbers = () => {
+    return [...applicationState.plumbers]
+}
 
 export const getRequests = () => {
     return applicationState.requests.map(request => ({...request}))
